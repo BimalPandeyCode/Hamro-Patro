@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.favicon.cc%2F%3Faction%3Dicon%26file_id%3D448627&psig=AOvVaw1I0kCp85ts5Ilx4dgf12HM&ust=1675425969458000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPi6naDm9vwCFQAAAAAdAAAAABAR"
+    />
     <title>Calender</title>
   </head>
   <body
@@ -33,9 +38,19 @@
   <script>
     let i = document.getElementById("iframethingy");
     let iBox = i.getBoundingClientRect();
-    const scaleFactor = window.innerHeight / iBox.height;
-    i.style.transform = `scale(${scaleFactor})`;
-    i.style.marginTop = `${(window.innerHeight - i.offsetHeight) / 2}px`;
-    i.style.marginBottom = `${(window.innerHeight - i.offsetHeight) / 2}px`;
+    if (window.innerHeight < window.innerWidth) {
+      const scaleFactor = window.innerHeight / iBox.height;
+      i.style.transform = `scale(${scaleFactor})`;
+      i.style.marginTop = `${(window.innerHeight - i.offsetHeight) / 2}px`;
+      i.style.marginBottom = `${(window.innerHeight - i.offsetHeight) / 2}px`;
+    } else {
+      const scaleFactor = window.innerWidth / iBox.width;
+      i.style.transform = `scale(${scaleFactor})`;
+
+      i.style.marginTop = `${(window.innerHeight - i.offsetHeight) / 2}px`;
+      i.style.marginBottom = `${(window.innerHeight - i.offsetHeight) / 2}px`;
+      i.style.marginLeft = `${(window.innerWidth - i.offsetWidth) / 2}px`;
+      i.style.marginRight = `${(window.innerWidth - i.offsetWidth) / 2}px`;
+    }
   </script>
 </html>
